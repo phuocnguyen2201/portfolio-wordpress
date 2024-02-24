@@ -18,11 +18,19 @@ Template Name: Homepage
 </div>
 <div class="content">
     <?php
-        
-        $hero_title = the_field('hero_title');
-
-        include_once 'includes/section-hero.php';
-        get_template_part('includes/section','hero');
+        get_template_part('includes/section','hero',    
+            array( 
+            'class'          => 'hero',
+            'arbitrary_data' => array(
+                'hero_title' => the_field('hero_title'),
+                'description' => the_field('description'),
+                'hero_image' => get_field('hero_image'),
+                'alt' => the_field('alt'),
+                'is_button_needed' => the_field('is_button_needed'),
+                'button_name' => the_field('button_name'),
+                'hero_button_link' => the_field('hero_button_link'),
+            ),
+        ));
     ?>
 </div>
 <div class="content-black">

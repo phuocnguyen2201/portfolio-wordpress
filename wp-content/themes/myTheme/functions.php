@@ -19,5 +19,11 @@ function enqueue_bootstrap_js() {
     wp_enqueue_script('bootstrap-js');
     wp_enqueue_script('fontawesome');
 }
+
+function my_register__carousel_blocks() {
+    register_block_type(__DIR__ . '/blocks/carousel');
+
+}
+add_action('init', 'my_register__carousel_blocks');
 add_action('wp_enqueue_scripts', 'enqueue_bootstrap_js');
 add_action('wp_enqueue_scripts', 'enqueue_bootstrap_css');
